@@ -2,8 +2,10 @@
 import "bootstrap";
 import "./style.css";
 
+//Traemos el contenido de container
 const container = document.querySelector(".container");
 
+//Array de comienzo de globos
 let balloons = [
   "pink",
   "black",
@@ -18,12 +20,13 @@ let balloons = [
   "yellow",
   "green"
 ];
-
+//función para establecer el color de un globo a null
 function popBalloon(pos) {
   balloons[pos] = null;
   renderBalloon();
 }
 
+//Función para "pintar los globos"
 function renderBalloon() {
   let content = "";
   //Por cada color en el array balloons, generamos un globo a través de JS  y lo mostramos en la página con innerhtml:
@@ -38,8 +41,9 @@ function renderBalloon() {
       style="background: ${color}"
       onclick="popBalloon(${position})"
       ></div>`;
-    console.log(visible);
   });
+
+  //una vez tengo todo el contenido montado, lo asigno el contenido del container
   container.innerHTML = content;
 }
 
